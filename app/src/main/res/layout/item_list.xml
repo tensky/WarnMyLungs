@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="16dp"
+    android:orientation="vertical"
+    app:cardCornerRadius="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_list_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/item_list_foto"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_jakarta"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/item_list_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/sunflower_regular"
+            android:textColor="#DF4949"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/item_list_aqi"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/item_list_foto"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Jakarta" />
+
+        <TextView
+            android:id="@+id/item_list_deskripsi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/sunflower_light"
+            android:textColor="#DF4949"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/item_list_aqi"
+            app:layout_constraintStart_toEndOf="@id/item_list_foto"
+            app:layout_constraintTop_toBottomOf="@id/item_list_title"
+            tools:text="Not healthy for some people" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_temperature"
+            app:layout_constraintBottom_toBottomOf="@id/item_list_temperature"
+            app:layout_constraintStart_toEndOf="@id/item_list_foto"
+            app:layout_constraintTop_toTopOf="@id/item_list_temperature" />
+
+        <TextView
+            android:id="@+id/item_list_temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/sunflower_light"
+            android:textColor="#888888"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageView"
+            app:layout_constraintTop_toBottomOf="@id/item_list_deskripsi"
+            tools:text="29*" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_water"
+            app:layout_constraintBottom_toBottomOf="@id/item_list_humidity"
+            app:layout_constraintStart_toEndOf="@id/item_list_temperature"
+            app:layout_constraintTop_toTopOf="@id/item_list_humidity" />
+
+        <TextView
+            android:id="@+id/item_list_humidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/sunflower_light"
+            android:textColor="#888888"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageView2"
+            app:layout_constraintTop_toBottomOf="@id/item_list_deskripsi"
+            tools:text="69%" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_wind"
+            app:layout_constraintBottom_toBottomOf="@id/item_list_wind"
+            app:layout_constraintStart_toEndOf="@id/item_list_humidity"
+            app:layout_constraintTop_toTopOf="@id/item_list_wind" />
+
+        <TextView
+            android:id="@+id/item_list_wind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/sunflower_light"
+            android:textColor="#888888"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageView3"
+            app:layout_constraintTop_toBottomOf="@id/item_list_deskripsi"
+            tools:text="7.6km/h" />
+
+        <TextView
+            android:id="@+id/item_list_aqi"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/bg_red_rounded_4dp"
+            android:fontFamily="@font/sunflower_bold"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/item_list_wind"
+            app:layout_constraintDimensionRatio="3:2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="135" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>

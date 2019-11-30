@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="12dp"
+    android:layout_marginEnd="12dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/forecast_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/sniglet"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="09:00" />
+
+    <TextView
+        android:id="@+id/forecast_aqi"
+        android:layout_width="64dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_red_rounded_4dp"
+        android:fontFamily="@font/sniglet"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/forecast_time"
+        tools:text="129" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/ic_matahari"
+        app:layout_constraintBottom_toBottomOf="@id/forecast_temperature"
+        app:layout_constraintEnd_toStartOf="@+id/forecast_temperature"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/forecast_temperature" />
+
+    <TextView
+        android:id="@+id/forecast_temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/sunflower_light"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/imageView"
+        app:layout_constraintTop_toBottomOf="@id/forecast_aqi"
+        tools:text="29*" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="20dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/ic_wind"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/forecast_temperature" />
+
+    <TextView
+        android:id="@+id/forecast_wind"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/sintony"
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView2"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="21.7 km/h" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

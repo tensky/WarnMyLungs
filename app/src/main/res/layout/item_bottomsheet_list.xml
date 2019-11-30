@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:paddingStart="24dp"
+    android:paddingTop="12dp"
+    android:paddingEnd="24dp">
+
+    <TextView
+        android:id="@+id/bottomsheet_list_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sunflower_regular"
+        android:textColor="@android:color/black"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/bottomsheet_list_aqi"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bottomsheet_list_aqi"
+        tools:text="09:00" />
+
+    <TextView
+        android:id="@+id/bottomsheet_list_aqi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:background="@drawable/bg_red_rounded_4dp"
+        android:fontFamily="@font/sniglet"
+        android:paddingStart="18dp"
+        android:paddingTop="6dp"
+        android:paddingEnd="18dp"
+        android:paddingBottom="6dp"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/bottomsheet_list_time"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="141" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/ic_matahari"
+        app:layout_constraintBottom_toBottomOf="@id/bottomsheet_list_aqi"
+        app:layout_constraintStart_toEndOf="@id/bottomsheet_list_aqi"
+        app:layout_constraintTop_toTopOf="@id/bottomsheet_list_aqi" />
+
+    <TextView
+        android:id="@+id/bottomsheet_list_temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:fontFamily="@font/sunflower_light"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/bottomsheet_list_aqi"
+        app:layout_constraintStart_toEndOf="@id/imageView"
+        app:layout_constraintTop_toTopOf="@id/bottomsheet_list_aqi"
+        tools:text="29*" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/ic_wind"
+        app:layout_constraintBottom_toBottomOf="@id/bottomsheet_list_aqi"
+        app:layout_constraintEnd_toStartOf="@id/bottomsheet_list_wind"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@id/bottomsheet_list_temperature"
+        app:layout_constraintTop_toTopOf="@id/bottomsheet_list_aqi" />
+
+    <TextView
+        android:id="@+id/bottomsheet_list_wind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/sunflower_light"
+        android:textColor="#4F4F4F"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/bottomsheet_list_aqi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imageView2"
+        app:layout_constraintTop_toTopOf="@id/bottomsheet_list_aqi"
+        tools:text="21.7km/h" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/linegrey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bottomsheet_list_aqi" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
