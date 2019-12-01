@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
-        android:text="Health Change on Air"
+        android:text="Alert on unhealthy air"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,14 +48,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
-        android:text="Alert on unhealthy air"
+        android:text="Alert With Sound"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/line" />
 
     <ToggleButton
-    android:id="@+id/settings_healthchange"
+    android:id="@+id/settings_unhealthy"
     android:layout_width="0dp"
     android:layout_height="0dp"
     android:layout_marginEnd="32dp"
@@ -68,7 +68,7 @@
     app:layout_constraintTop_toTopOf="@+id/textView3" />
 
     <ToggleButton
-        android:id="@+id/settings_unhealthy"
+        android:id="@+id/settings_sound"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="32dp"

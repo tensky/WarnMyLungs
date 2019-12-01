@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/transparent"
+    android:id="@+id/notificationLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/ic_notification_top" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="match_parent"
+        android:layout_below="@id/imageView9"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/ic_notification_bottom" />
+
+    <TextView
+        android:id="@+id/notification_aqi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/sunflower_bold"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        tools:text="129 AQI" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/notification_aqi"
+        android:layout_alignEnd="@+id/notification_aqi"
+        android:fontFamily="@font/sunflower_regular"
+        android:text="Unhealthy"
+        android:gravity="center"
+        android:layout_below="@id/notification_aqi"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
+
+
+</RelativeLayout>

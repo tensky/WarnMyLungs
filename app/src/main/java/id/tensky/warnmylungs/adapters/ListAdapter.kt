@@ -8,11 +8,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import id.tensky.warnmylungs.R
+import id.tensky.warnmylungs.callbacks.CallbackList
 import id.tensky.warnmylungs.models.ListModel
 import kotlinx.android.synthetic.main.item_list.view.*
 
 
-class ListAdapter(val itemList : List<ListModel>) : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
+class ListAdapter(val itemList : List<ListModel>, val callback : CallbackList) : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
     lateinit var context:Context
     val TAG = "WMLs"
     class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -23,6 +24,7 @@ class ListAdapter(val itemList : List<ListModel>) : RecyclerView.Adapter<ListAda
         val humidity = itemView.item_list_humidity
         val wind = itemView.item_list_wind
         val aqi = itemView.item_list_aqi
+        val layout = itemView.item_list_layout
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
@@ -43,6 +45,9 @@ class ListAdapter(val itemList : List<ListModel>) : RecyclerView.Adapter<ListAda
         holder.humidity.text = item.humidity
         holder.wind.text = item.wind
         holder.aqi.text = item.aqi
+        holder.layout.setOnClickListener{
+            callback.onItemClicked(item.indexDaerah)
+        }
         Glide.with(context).load(item.foto).into(holder.foto)
     }
 }

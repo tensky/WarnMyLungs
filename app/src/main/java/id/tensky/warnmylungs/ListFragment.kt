@@ -13,20 +13,27 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import id.tensky.warnmylungs.R
 import id.tensky.warnmylungs.adapters.ListAdapter
 import id.tensky.warnmylungs.callbacks.CallbackAPI
+import id.tensky.warnmylungs.callbacks.CallbackList
 import id.tensky.warnmylungs.models.ListModel
 import kotlinx.android.synthetic.main.fragment_list.view.*
 import org.json.JSONObject
 
 class ListFragment : Fragment() {
     val itemList = mutableListOf<ListModel>()
-    val adapter = ListAdapter(itemList)
+    val callbackList = object : CallbackList {
+        override fun onItemClicked(index: Int) {
+            ListBottomSheetFragment(index).show(childFragmentManager, "BottomList")
+        }
+    }
+    val adapter = ListAdapter(itemList, callbackList)
     val TAG = "WMLs"
+    lateinit var root:View
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_list, container, false)
+        root = inflater.inflate(R.layout.fragment_list, container, false)
         root.list_recycler.adapter = adapter
         root.list_recycler.layoutManager = LinearLayoutManager(context)
         itemList.clear()
@@ -47,7 +54,8 @@ class ListFragment : Fragment() {
                             "4"->R.drawable.ic_bandung
                             "5"->R.drawable.ic_riau
                             else->0
-                        }
+                        },
+                        response.getString("id").toInt()
                     )
                     itemList.add(item)
                     adapter.notifyDataSetChanged()
@@ -57,4 +65,6 @@ class ListFragment : Fragment() {
         }
         return root
     }
+    
+
 }

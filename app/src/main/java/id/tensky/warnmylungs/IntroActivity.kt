@@ -1,6 +1,9 @@
 package id.tensky.warnmylungs
 
+import android.app.Activity
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.location.Geocoder
 import androidx.appcompat.app.AppCompatActivity
@@ -15,13 +18,23 @@ import com.google.android.gms.location.LocationServices
 class IntroActivity : AppCompatActivity() {
     val REQUEST_LOCATION_PERMISSION = 1
     val TAG = "WMLs"
-
+    lateinit var sharedPreference:SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_intro)
         supportActionBar?.hide()
         askForPermission()
         AndroidNetworking.initialize(this)
+        sharedPreference = getSharedPreferences("WMLsSettings", Context.MODE_PRIVATE)
+        if(sharedPreference.getBoolean(SettingsActivity.NOTIFICATION_ACTIVATED, false)){
+            notifService()
+        }
+    }
+
+    fun notifService(){
+        val notifIntent = Intent(this, NotificationService::class.java)
+        notifIntent.putExtra("soundEnabled", sharedPreference.getBoolean(SettingsActivity.SOUND_ACTIVATED, false))
+        startService(notifIntent)
     }
 
     fun askForPermission(){
@@ -53,8 +66,8 @@ class IntroActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == REQUEST_LOCATION_PERMISSION){
-            askForPermission()
+        if(requestCode == REQUEST_LOCATION_PERMISSION && resultCode == Activity.RESULT_OK){
+            getLocation()
         }
     }
 }

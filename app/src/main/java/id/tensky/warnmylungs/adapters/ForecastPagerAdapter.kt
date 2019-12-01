@@ -15,7 +15,7 @@ class ForecastPagerAdapter(fm:FragmentManager, val fragmentList:List<ForecastFra
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
-        return fragmentList[position].title
+        return fragmentList[position].day
     }
 
 }
