@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
                  }
                  R.id.nav_report->{
                      fragmentTransaction = supportFragmentManager.beginTransaction()
-                     fragmentTransaction.replace(R.id.main_frame, SendReportFragment())
+                     fragmentTransaction.add(R.id.main_frame, SendReportFragment()).addToBackStack("REPORT FRAGMENT")
                      fragmentTransaction.commit()
                      drawerLayout.closeDrawer(GravityCompat.START)
                      return@setNavigationItemSelectedListener true

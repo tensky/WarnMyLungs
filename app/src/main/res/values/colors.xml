@@ -17,4 +17,5 @@
     <color name="boxgreen">#63EB57</color>
     <color name="boxlightgreen">#84FF77</color>
     <color name="boxdarkgreen">#1D890B</color>
+    <color name="placeholder">#DDDDDD</color>
 </resources>

@@ -1,5 +1,6 @@
 package id.tensky.warnmylungs
 
+import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -7,6 +8,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.preference.PreferenceFragmentCompat
 import kotlinx.android.synthetic.main.activity_settings.*
 
@@ -31,10 +33,18 @@ class SettingsActivity : AppCompatActivity() {
         settings_unhealthy.setOnCheckedChangeListener{ _, checked ->
             editor.putBoolean(NOTIFICATION_ACTIVATED, checked)
             editor.commit()
+
+            val notifIntent = Intent(this, NotificationService::class.java)
             if(checked){
-                val notifIntent = Intent(this, NotificationService::class.java)
                 notifIntent.putExtra("soundEnabled", settings_sound.isChecked)
                 startService(notifIntent)
+                if(sharedPreference.getBoolean("notasked", false)){
+                    startActivity(Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS"))
+                }else{
+                    editor.putBoolean("notasked", true)
+                }
+            }else{
+                stopService(notifIntent)
             }
         }
         settings_sound.setOnCheckedChangeListener{ _, checked ->

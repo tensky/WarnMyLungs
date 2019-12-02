@@ -35,7 +35,7 @@ class HomeFragment : Fragment() {
         forecastPagerAdapter = ForecastPagerAdapter(childFragmentManager, forecastFragmentList)
         root.home_viewPager.adapter = forecastPagerAdapter
         root.home_tabLayout.setupWithViewPager(root.home_viewPager)
-
+        root.home_shimmer.startShimmerAnimation()
         val namaProvinsi = activity?.intent?.getStringExtra("namaProvinsi")
 
         when{
@@ -58,6 +58,10 @@ class HomeFragment : Fragment() {
             namaProvinsi.contains("Riau")->{
                 getHomeData(5)
                 indexDaerah = 5
+            }
+            else-> {
+                getHomeData(3)
+                indexDaerah = 3
             }
         }
 
@@ -126,8 +130,11 @@ class HomeFragment : Fragment() {
     fun getHomeData(index:Int){
         val callback = object : CallbackAPI {
             override fun onCallback(response: JSONObject) {
+                root.home_shimmer.stopShimmerAnimation()
+                root.home_shimmer.visibility = View.GONE
+                root.home_infoCardView.visibility = View.VISIBLE
                 root.home_kota.text = response.getString("namaKota")
-                home_deskripsiKota.text = response.getString("detailKota")
+                root.home_deskripsiKota.text = response.getString("detailKota")
                 root.home_aqinumber.text = response.getString("scoreAQI")
                 root.home_aqistatus.text = response.getString("statusAQI")
                 root.home_pm.text = response.getString("moreDetails")

@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:shimmer="http://schemas.android.com/tools"
     app:behavior_hideable="false"
     app:behavior_peekHeight="32dp"
     android:background="@color/white"
@@ -61,11 +62,33 @@
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linearlayout" />
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/maps_shimmer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/maps_recycler"
+        app:layout_constraintEnd_toEndOf="@id/maps_recycler"
+        app:layout_constraintStart_toStartOf="@id/maps_recycler"
+        app:layout_constraintTop_toTopOf="@id/maps_recycler"
+        shimmer:duration ="600">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <include layout="@layout/item_placeholder" />
+            <include layout="@layout/item_placeholder" />
+            <include layout="@layout/item_placeholder" />
+            <include layout="@layout/item_placeholder" />
+            <include layout="@layout/item_placeholder" />
+            <include layout="@layout/item_placeholder" />
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

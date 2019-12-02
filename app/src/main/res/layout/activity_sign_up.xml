@@ -69,6 +69,7 @@
                 android:fontFamily="@font/roboto"
                 android:hint="NIK"
                 android:inputType="number"
+                android:singleLine="true"
                 android:textColor="@color/colorPrimary"
                 android:textColorHint="#B3DF4949"
                 android:textSize="18sp" />
@@ -107,6 +108,7 @@
                 android:background="@color/transparent"
                 android:fontFamily="@font/roboto"
                 android:hint="Nama"
+                android:singleLine="true"
                 android:textColor="@color/colorPrimary"
                 android:textColorHint="#B3DF4949"
                 android:textSize="18sp" />
@@ -145,6 +147,8 @@
                 android:background="@color/transparent"
                 android:fontFamily="@font/roboto"
                 android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:singleLine="true"
                 android:textColor="@color/colorPrimary"
                 android:textColorHint="#B3DF4949"
                 android:textSize="18sp" />
@@ -181,8 +185,9 @@
                 android:layout_height="wrap_content"
                 android:background="@color/transparent"
                 android:fontFamily="@font/roboto"
-                android:inputType="phone"
                 android:hint="Phone"
+                android:inputType="phone"
+                android:singleLine="true"
                 android:textColor="@color/colorPrimary"
                 android:textColorHint="#B3DF4949"
                 android:textSize="18sp" />
@@ -210,8 +215,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/roboto"
-        android:text="With press “Sign Up”, you already agree
-            with our terms and condition."
+        android:text="With press “Sign Up”, you already agree with our terms and condition."
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="16sp"
