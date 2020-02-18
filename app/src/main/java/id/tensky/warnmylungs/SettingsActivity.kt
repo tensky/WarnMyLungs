@@ -15,11 +15,11 @@ import kotlinx.android.synthetic.main.activity_settings.*
 class SettingsActivity : AppCompatActivity() {
     lateinit var sharedPreference:SharedPreferences
     lateinit var editor:SharedPreferences.Editor
+    val TAG = "WMLs"
     companion object{
         const val NOTIFICATION_ACTIVATED = "notif_activated"
         const val SOUND_ACTIVATED = "sound_activated"
     }
-    //val TAG = "WMLs"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
@@ -38,13 +38,11 @@ class SettingsActivity : AppCompatActivity() {
             if(checked){
                 notifIntent.putExtra("soundEnabled", settings_sound.isChecked)
                 startService(notifIntent)
-                if(sharedPreference.getBoolean("notasked", false)){
-                    startActivity(Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS"))
-                }else{
-                    editor.putBoolean("notasked", true)
-                }
+                editor.putBoolean("notasked", true)
+                editor.commit()
             }else{
-                stopService(notifIntent)
+                notifIntent.putExtra("stopSelf", true)
+                startService(notifIntent)
             }
         }
         settings_sound.setOnCheckedChangeListener{ _, checked ->

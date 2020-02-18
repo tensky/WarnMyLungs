@@ -5,7 +5,8 @@
     android:layout_height="wrap_content"
     xmlns:shimmer="http://schemas.android.com/tools"
     app:behavior_hideable="false"
-    app:behavior_peekHeight="32dp"
+    app:behavior_peekHeight="86dp"
+    android:clickable="true"
     android:background="@color/white"
     app:layout_behavior="@string/bottom_sheet_behavior">
 
@@ -60,9 +61,9 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/maps_recycler"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

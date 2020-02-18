@@ -106,16 +106,9 @@ class IntroActivity : AppCompatActivity() {
             e.printStackTrace()
         }
         if (!gps_enabled) {
-            AlertDialog.Builder(this@IntroActivity)
-                .setMessage("Please Turn On Your GPS")
-                .setPositiveButton("Settings"
-                ) { _, _ ->
-                    startActivity(
-                        Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
-                    )
-                }
-                .setNegativeButton("Cancel", null)
-                .show()
+            val fragtran = supportFragmentManager.beginTransaction()
+            fragtran.add(R.id.intro_frame, AskPermissionFragment())
+            fragtran.commit()
             gpsTimer()
         }else{
             getLocation()

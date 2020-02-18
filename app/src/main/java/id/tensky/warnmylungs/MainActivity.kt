@@ -2,6 +2,7 @@ package id.tensky.warnmylungs
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
@@ -11,6 +12,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.navigation.NavigationView
+import id.tensky.warnmylungs.join_movement.JoinMovementFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.appbar_main.*
 
@@ -67,6 +69,15 @@ class MainActivity : AppCompatActivity() {
                      drawerLayout.closeDrawer(GravityCompat.START)
                      return@setNavigationItemSelectedListener true
                  }
+
+                 R.id.nav_movement->{
+                     fragmentTransaction = supportFragmentManager.beginTransaction()
+                     fragmentTransaction.add(R.id.main_frame, JoinMovementFragment()).addToBackStack("Join Movement")
+                     fragmentTransaction.commit()
+                     drawerLayout.closeDrawer(GravityCompat.START)
+                     return@setNavigationItemSelectedListener true
+                 }
+
                  else->return@setNavigationItemSelectedListener true
              }
          }

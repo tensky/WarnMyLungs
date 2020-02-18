@@ -127,5 +127,22 @@ class TembakAPI {
                     }
                 })
         }
+
+        fun getNearby(callbackAPI: CallbackAPI, latitude:String, longitude:String, key:String){
+
+            AndroidNetworking.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=$latitude,$longitude&radius=5000&type=hospital&key=$key")
+                .setPriority(Priority.HIGH)
+                .build()
+                .getAsJSONObject(object : JSONObjectRequestListener {
+                    override fun onResponse(response: JSONObject) {
+                        Log.d(TAG, "onResponse: $response")
+                        callbackAPI.onCallback(response)
+                    }
+
+                    override fun onError(anError: ANError) {
+                        Log.d(TAG, "onError: " + anError.errorDetail)
+                    }
+                })
+        }
     }
 }

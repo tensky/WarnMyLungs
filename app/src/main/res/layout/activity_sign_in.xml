@@ -8,7 +8,6 @@
     android:paddingStart="48dp"
     android:paddingTop="16dp"
     android:paddingEnd="48dp"
-    android:paddingBottom="16dp"
     tools:context=".SignInActivity">
 
     <ImageView
@@ -21,10 +20,10 @@
         android:background="@drawable/bg_white_round"
         android:padding="28dp"
         android:scaleType="centerInside"
+        android:src="@drawable/ic_lungs_512"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/ic_lungs_512" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView"
@@ -79,6 +78,25 @@
     </androidx.cardview.widget.CardView>
 
     <Button
+        android:id="@+id/signin_signUpButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/bg_white_rounded_32dp"
+        android:fontFamily="@font/roboto"
+        android:singleLine="true"
+        android:text="Sign up"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signin_signInButton"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
         android:id="@+id/signin_signInButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -92,24 +110,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardView4" />
-
-    <Button
-        android:id="@+id/signin_signUpButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="32dp"
-        android:background="@drawable/bg_white_rounded_32dp"
-        android:fontFamily="@font/roboto"
-        android:text="Sign up"
-        android:textColor="@color/colorPrimary"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:singleLine="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signin_signInButton"
-        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
